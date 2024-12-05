@@ -45,7 +45,12 @@ class SendOtpCode implements ShouldQueue
 
             /** @var Model $otpModel */
             $otpModel = (app(config('otp.otp.model')))->query()->findOrFail($this->ownerId);
-            dispatch_sync(app($this->otpType->getJob(), [$otpCode, $otpModel]));
+
+            $job = $this->otpType->getJob();
+            if (is_string($job)) {
+                dispatch_sync(app($job, [$otpCode, $otpModel]));
+            }
+
         }
     }
 }

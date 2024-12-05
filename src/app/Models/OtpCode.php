@@ -19,7 +19,7 @@ class OtpCode extends Model
     static function boot(): void
     {
         static::creating(function (self $code) {
-            $code->expired_at = now()->addSeconds(config('otp.expired_at'));
+            $code->expired_at = now()->addSeconds(config('otp.expired_time'));
         });
     }
 

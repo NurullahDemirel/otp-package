@@ -22,11 +22,12 @@ enum OtpType: string
         return $code;
     }
 
-    public function getJob(): string
+    public function getJob(): ?string
     {
         return match ($this) {
             self::EMAIL => config('otp.jobs.email'),
             self::PHONE => config('otp.jobs.phone'),
+            default => null
         };
     }
 }
