@@ -1,0 +1,26 @@
+{
+  "name": "nuri/otp",
+  "autoload": {
+    "psr-4": {
+      "Nuri\\Otp\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "NurullahDemirel",
+      "email": "nurullahdemirel75@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "laravel/framework": ">=9.0 <11.0",
+    "pragmarx/google2fa-qrcode": "^3.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Nuri\\Otp\\OTPServiceProvider"
+      ]
+    }
+  }
+}
