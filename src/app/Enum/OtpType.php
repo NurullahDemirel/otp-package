@@ -9,6 +9,7 @@ enum OtpType: string
     case EMAIL = 'Email';
     case PHONE = 'Phone';
     case GOOGLE = 'Google';
+    case SLACK = 'Slack';
 
     public static function generateOtpCode(): string
     {
@@ -24,10 +25,6 @@ enum OtpType: string
 
     public function getJob(): ?string
     {
-        return match ($this) {
-            self::EMAIL => config('otp.jobs.email'),
-            self::PHONE => config('otp.jobs.phone'),
-            default => null
-        };
+        return config('otp.jobs.' . $this->value);
     }
 }

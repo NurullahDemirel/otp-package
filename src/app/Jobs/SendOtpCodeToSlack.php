@@ -8,9 +8,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Nuri\Otp\app\Abstracts\SendOtpCode as SendOtpCodeAbstract;
-
-class SendOtpCodeToPhone extends SendOtpCodeAbstract implements ShouldQueue
+use Nuri\Otp\app\Abstracts\SendOtpCode as SendOtpCodeAbstract ;
+class SendOtpCodeToSlack extends SendOtpCodeAbstract implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     /**
@@ -18,7 +17,8 @@ class SendOtpCodeToPhone extends SendOtpCodeAbstract implements ShouldQueue
      */
     public function handle(): void
     {
-        //write your business logic
-        //you can inject your message service  as parameter of this function
+        $otpModel = $this->otpModel;
+        $otpCode = $this->otpCode;
+        // continue your business logic with this values
     }
 }

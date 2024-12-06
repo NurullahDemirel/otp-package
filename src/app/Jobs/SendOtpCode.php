@@ -9,11 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Schema;
 use Nuri\Otp\app\Enum\OtpType;
-use Nuri\Otp\app\Exceptions\RequiredEmailInOtpModel;
-use Nuri\Otp\app\Mail\OtpEmail;
 use Nuri\Otp\app\Models\OtpCode;
 use Nuri\Otp\app\Services\OtpCodeService;
 
